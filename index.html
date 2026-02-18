@@ -229,6 +229,21 @@
             background: #1a1a1a;
         }
 
+        .leader-avatar-svg {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            transition: border-color 0.35s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .leader-card:hover .leader-avatar-svg {
+            border-color: var(--gold);
+        }
+
         .leader-card:hover .leader-avatar {
             border-color: var(--gold);
         }
@@ -331,6 +346,21 @@
             transition: border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
+        .clevel-avatar-svg {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .clevel-card:hover .clevel-avatar-svg {
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+        }
+
         .clevel-card:hover .clevel-avatar {
             box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
         }
@@ -398,6 +428,16 @@
             margin: 0 auto 10px;
             background: #1a1a1a;
             border: 2px solid var(--border);
+        }
+
+        .pm-avatar-svg {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
         .pm-card h3 {
@@ -630,7 +670,22 @@
             <div class="leadership-grid">
                 <!-- Ben -->
                 <div class="leader-card animate-in delay-3">
-                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Benjamin&backgroundColor=c9a227" alt="Benjamin Boyce">
+                    <div class="leader-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+                            <defs>
+                                <linearGradient id="ben-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#c9a227"/>
+                                    <stop offset="100%" style="stop-color:#a07d10"/>
+                                </linearGradient>
+                                <filter id="ben-shadow">
+                                    <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+                                </filter>
+                            </defs>
+                            <circle cx="48" cy="48" r="48" fill="url(#ben-bg)"/>
+                            <circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <text x="48" y="48" text-anchor="middle" dominant-baseline="central" font-family="Inter, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#fff" filter="url(#ben-shadow)">BB</text>
+                        </svg>
+                    </div>
                     <h3>Benjamin Boyce</h3>
                     <div class="title">Founder &amp; CEO</div>
                     <div class="email">ben@advancedmarketing.co</div>
@@ -639,7 +694,22 @@
                 </div>
                 <!-- Prathamesh -->
                 <div class="leader-card animate-in delay-4">
-                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Prathamesh&backgroundColor=667eea" alt="Prathamesh Mali">
+                    <div class="leader-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+                            <defs>
+                                <linearGradient id="pm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2196F3"/>
+                                    <stop offset="100%" style="stop-color:#1565C0"/>
+                                </linearGradient>
+                                <filter id="pm-shadow">
+                                    <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+                                </filter>
+                            </defs>
+                            <circle cx="48" cy="48" r="48" fill="url(#pm-bg)"/>
+                            <circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <text x="48" y="48" text-anchor="middle" dominant-baseline="central" font-family="Inter, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#fff" filter="url(#pm-shadow)">PM</text>
+                        </svg>
+                    </div>
                     <h3>Prathamesh Mali</h3>
                     <div class="title">Agency Admin</div>
                     <div class="email">pratham@advancedmarketing.co</div>
@@ -647,7 +717,22 @@
                 </div>
                 <!-- Saurebh -->
                 <div class="leader-card animate-in delay-5">
-                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Saurebh&backgroundColor=f5576c" alt="Saurebh">
+                    <div class="leader-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+                            <defs>
+                                <linearGradient id="sb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4CAF50"/>
+                                    <stop offset="100%" style="stop-color:#2E7D32"/>
+                                </linearGradient>
+                                <filter id="sb-shadow">
+                                    <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+                                </filter>
+                            </defs>
+                            <circle cx="48" cy="48" r="48" fill="url(#sb-bg)"/>
+                            <circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <text x="48" y="48" text-anchor="middle" dominant-baseline="central" font-family="Inter, -apple-system, sans-serif" font-size="40" font-weight="700" fill="#fff" filter="url(#sb-shadow)">S</text>
+                        </svg>
+                    </div>
                     <h3>Saurebh</h3>
                     <div class="title">Operations Lead</div>
                     <div class="email">saurebh@advancedmarketing.co</div>
@@ -670,49 +755,140 @@
             <div class="clevel-grid">
                 <!-- CEO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CEO&backgroundColor=c9a227" alt="CEO Agent" style="border-color: var(--gold);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--gold);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="ceo-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a227"/><stop offset="100%" style="stop-color:#a07d10"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#ceo-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#c9a227"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#c9a227"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#c9a227"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CEO Agent</h3>
                     <div class="title">Chief AI Orchestrator</div>
                     <span class="agent-count" style="background: var(--gold-dim); color: var(--gold);">77 Agents</span>
                 </div>
                 <!-- CTO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CTO&backgroundColor=3b82f6" alt="CTO Agent" style="border-color: var(--blue);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--blue);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="cto-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#1d4ed8"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#cto-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#3b82f6"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#3b82f6"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#3b82f6"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CTO Agent</h3>
                     <div class="title">Chief Technology Officer</div>
                     <span class="agent-count" style="background: rgba(59,130,246,0.12); color: var(--blue);">20 Agents</span>
                 </div>
                 <!-- CDO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CDO&backgroundColor=a855f7" alt="CDO Agent" style="border-color: var(--purple);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--purple);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="cdo-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a855f7"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#cdo-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#a855f7"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#a855f7"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#a855f7"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CDO Agent</h3>
                     <div class="title">Chief Design Officer</div>
                     <span class="agent-count" style="background: rgba(168,85,247,0.12); color: var(--purple);">11 Agents</span>
                 </div>
                 <!-- CMO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CMO&backgroundColor=eab308" alt="CMO Agent" style="border-color: var(--yellow);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--yellow);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="cmo-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#eab308"/><stop offset="100%" style="stop-color:#ca8a04"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#cmo-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#eab308"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#eab308"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#eab308"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CMO Agent</h3>
                     <div class="title">Chief Marketing Officer</div>
                     <span class="agent-count" style="background: rgba(234,179,8,0.12); color: var(--yellow);">10 Agents</span>
                 </div>
                 <!-- CDO-Data Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CDOData&backgroundColor=06b6d4" alt="CDO-Data Agent" style="border-color: var(--cyan);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--cyan);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="cdod-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#06b6d4"/><stop offset="100%" style="stop-color:#0891b2"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#cdod-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#06b6d4"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#06b6d4"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#06b6d4"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CDO-Data</h3>
                     <div class="title">Chief Data Officer</div>
                     <span class="agent-count" style="background: rgba(6,182,212,0.12); color: var(--cyan);">10 Agents</span>
                 </div>
                 <!-- COO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=COO&backgroundColor=f97316" alt="COO Agent" style="border-color: var(--orange);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--orange);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="coo-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#ea580c"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#coo-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#f97316"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#f97316"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#f97316"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>COO Agent</h3>
                     <div class="title">Chief Operations Officer</div>
                     <span class="agent-count" style="background: rgba(249,115,22,0.12); color: var(--orange);">10 Agents</span>
                 </div>
                 <!-- CIO Agent -->
                 <div class="clevel-card">
-                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CIO&backgroundColor=ef4444" alt="CIO Agent" style="border-color: var(--red);">
+                    <div class="clevel-avatar-svg" style="border-color: var(--red);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+                            <defs><linearGradient id="cio-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#dc2626"/></linearGradient></defs>
+                            <circle cx="28" cy="28" r="28" fill="url(#cio-bg)"/>
+                            <rect x="16" y="14" width="24" height="18" rx="4" fill="rgba(255,255,255,0.9)"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#ef4444"/>
+                            <circle cx="34" cy="22" r="2.5" fill="#ef4444"/>
+                            <rect x="20" y="27" width="16" height="2" rx="1" fill="#ef4444"/>
+                            <rect x="24" y="8" width="8" height="6" rx="2" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="14" y="36" width="28" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="38" cy="44" r="3" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
                     <h3>CIO Agent</h3>
                     <div class="title">Chief Integration Officer</div>
                     <span class="agent-count" style="background: rgba(239,68,68,0.12); color: var(--red);">5 Agents</span>
@@ -733,19 +909,58 @@
             </div>
             <div class="pm-grid">
                 <div class="pm-card">
-                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMWeb&backgroundColor=ffffff" alt="PM-Web">
+                    <div class="pm-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+                            <defs><linearGradient id="pmw-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#14b8a6"/><stop offset="100%" style="stop-color:#0d9488"/></linearGradient></defs>
+                            <circle cx="24" cy="24" r="24" fill="url(#pmw-bg)"/>
+                            <rect x="12" y="12" width="16" height="12" rx="3" fill="rgba(255,255,255,0.85)"/>
+                            <circle cx="17" cy="17" r="1.5" fill="#14b8a6"/>
+                            <circle cx="25" cy="17" r="1.5" fill="#14b8a6"/>
+                            <rect x="15" y="20" width="10" height="1.5" rx="0.75" fill="#14b8a6"/>
+                            <rect x="20" y="7" width="6" height="5" rx="1.5" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="10" y="28" width="20" height="4" rx="2" fill="rgba(255,255,255,0.35)"/>
+                            <circle cx="14" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                            <circle cx="30" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                        </svg>
+                    </div>
                     <h3>PM-Web</h3>
                     <div class="title">Web Project Manager</div>
                     <div class="reports-to">Reports to CTO Agent</div>
                 </div>
                 <div class="pm-card">
-                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMMarketing&backgroundColor=ffffff" alt="PM-Marketing">
+                    <div class="pm-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+                            <defs><linearGradient id="pmm-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2dd4bf"/><stop offset="100%" style="stop-color:#14b8a6"/></linearGradient></defs>
+                            <circle cx="24" cy="24" r="24" fill="url(#pmm-bg)"/>
+                            <rect x="12" y="12" width="16" height="12" rx="3" fill="rgba(255,255,255,0.85)"/>
+                            <circle cx="17" cy="17" r="1.5" fill="#14b8a6"/>
+                            <circle cx="25" cy="17" r="1.5" fill="#14b8a6"/>
+                            <rect x="15" y="20" width="10" height="1.5" rx="0.75" fill="#14b8a6"/>
+                            <rect x="20" y="7" width="6" height="5" rx="1.5" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="10" y="28" width="20" height="4" rx="2" fill="rgba(255,255,255,0.35)"/>
+                            <circle cx="14" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                            <circle cx="30" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                        </svg>
+                    </div>
                     <h3>PM-Marketing</h3>
                     <div class="title">Marketing Project Manager</div>
                     <div class="reports-to">Reports to CMO Agent</div>
                 </div>
                 <div class="pm-card">
-                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMClient&backgroundColor=ffffff" alt="PM-Client">
+                    <div class="pm-avatar-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+                            <defs><linearGradient id="pmc-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#5eead4"/><stop offset="100%" style="stop-color:#2dd4bf"/></linearGradient></defs>
+                            <circle cx="24" cy="24" r="24" fill="url(#pmc-bg)"/>
+                            <rect x="12" y="12" width="16" height="12" rx="3" fill="rgba(255,255,255,0.85)"/>
+                            <circle cx="17" cy="17" r="1.5" fill="#14b8a6"/>
+                            <circle cx="25" cy="17" r="1.5" fill="#14b8a6"/>
+                            <rect x="15" y="20" width="10" height="1.5" rx="0.75" fill="#14b8a6"/>
+                            <rect x="20" y="7" width="6" height="5" rx="1.5" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="10" y="28" width="20" height="4" rx="2" fill="rgba(255,255,255,0.35)"/>
+                            <circle cx="14" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                            <circle cx="30" cy="36" r="2.5" fill="rgba(255,255,255,0.25)"/>
+                        </svg>
+                    </div>
                     <h3>PM-Client</h3>
                     <div class="title">Client Project Manager</div>
                     <div class="reports-to">Reports to COO Agent</div>
@@ -923,7 +1138,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
-                    <div class="number">7</div>
+                    <div class="number">8</div>
                     <div class="label">Departments</div>
                 </div>
                 <div class="stat-divider"></div>
