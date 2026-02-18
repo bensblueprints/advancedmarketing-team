@@ -3,237 +3,949 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Marketing Team</title>
+    <title>Advanced Marketing - Meet the Team</title>
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --gold: #c9a227;
+            --gold-dim: rgba(201, 162, 39, 0.15);
+            --gold-glow: rgba(201, 162, 39, 0.3);
+            --text: #e8e8e8;
+            --text-dim: #888;
+            --text-muted: #555;
+            --border: #222;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --green: #22c55e;
+            --yellow: #eab308;
+            --cyan: #06b6d4;
+            --orange: #f97316;
+            --red: #ef4444;
+            --pink: #ec4899;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            padding: 60px 20px;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+
+        /* ===== Background Decoration ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 20%, rgba(201, 162, 39, 0.03) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(201, 162, 39, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
-        
-        header {
+
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== Header ===== */
+        .hero {
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        header h1 {
-            color: white;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.2rem;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
-        }
-        
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2.5rem;
-            color: white;
-        }
-        
-        .team-card.ai .avatar {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        
-        .name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-        
-        .role {
-            font-size: 1rem;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .email {
-            font-size: 0.9rem;
-            color: #718096;
-            margin-bottom: 20px;
-        }
-        
-        .responsibilities {
-            text-align: left;
-            margin-top: 20px;
-        }
-        
-        .responsibilities h4 {
-            font-size: 0.85rem;
-            color: #a0aec0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .responsibilities ul {
-            list-style: none;
-        }
-        
-        .responsibilities li {
-            padding: 5px 0;
-            color: #4a5568;
-            font-size: 0.95rem;
-            padding-left: 20px;
+            padding: 80px 20px 60px;
             position: relative;
         }
-        
-        .responsibilities li:before {
-            content: "✓";
+
+        .hero::after {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-        
+
+        .hero-brand {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold), #e8d48b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== Section Shared ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-label {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-label .tier-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--gold-dim);
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .section-label h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-label p {
+            color: var(--text-dim);
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== Connecting Lines ===== */
+        .connector {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            height: 48px;
+            position: relative;
+        }
+
+        .connector::before {
+            content: '';
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold-glow), transparent);
+        }
+
+        /* ===== Leadership Cards (Tier 1) ===== */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+        }
+
+        .leader-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px 28px 28px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 162, 39, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(201, 162, 39, 0.06);
+        }
+
+        .leader-card:hover::before {
+            opacity: 1;
+        }
+
+        .leader-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--border);
+            transition: border-color 0.35s ease;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+
+        .leader-card:hover .leader-avatar {
+            border-color: var(--gold);
+        }
+
+        .leader-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .leader-card .title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .leader-card .email {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .leader-card .desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .leader-card .location {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--gold-dim);
+            padding: 4px 14px;
+            border-radius: 12px;
+        }
+
+        /* ===== C-Level Agent Cards (Tier 2) ===== */
+        .clevel-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 1100px) {
+            .clevel-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .clevel-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .clevel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px 14px 20px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .clevel-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .clevel-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        .clevel-card:hover::after {
+            opacity: 1;
+        }
+
+        .clevel-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            background: #1a1a1a;
+            border: 2px solid var(--border);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .clevel-card:hover .clevel-avatar {
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+        }
+
+        .clevel-card h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .clevel-card .title {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .clevel-card .agent-count {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        /* ===== PM Cards (Tier 3) ===== */
+        .pm-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 640px) {
+            .pm-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+            }
+        }
+
+        .pm-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pm-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pm-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background: #1a1a1a;
+            border: 2px solid var(--border);
+        }
+
+        .pm-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .pm-card .title {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .pm-card .reports-to {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ===== Department Grid (Tier 4) ===== */
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .dept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dept-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .dept-block:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .dept-header {
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dept-header h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dept-header .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .dept-header .count {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 3px 10px;
+            border-radius: 8px;
+        }
+
+        .dept-agents {
+            padding: 4px 16px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .agent-chip {
+            font-size: 0.68rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-dim);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .agent-chip:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+        }
+
+        /* Department color accents on chips hover */
+        .dept-blue .agent-chip:hover { color: var(--blue); border-color: rgba(59, 130, 246, 0.2); }
+        .dept-purple .agent-chip:hover { color: var(--purple); border-color: rgba(168, 85, 247, 0.2); }
+        .dept-green .agent-chip:hover { color: var(--green); border-color: rgba(34, 197, 94, 0.2); }
+        .dept-yellow .agent-chip:hover { color: var(--yellow); border-color: rgba(234, 179, 8, 0.2); }
+        .dept-cyan .agent-chip:hover { color: var(--cyan); border-color: rgba(6, 182, 212, 0.2); }
+        .dept-orange .agent-chip:hover { color: var(--orange); border-color: rgba(249, 115, 22, 0.2); }
+        .dept-red .agent-chip:hover { color: var(--red); border-color: rgba(239, 68, 68, 0.2); }
+        .dept-pink .agent-chip:hover { color: var(--pink); border-color: rgba(236, 72, 153, 0.2); }
+
+        /* ===== Stats Bar ===== */
+        .stats-bar {
+            margin: 60px 0;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(201, 162, 39, 0.02), transparent);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-item .label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 36px;
+            background: var(--border);
+        }
+
+        @media (max-width: 640px) {
+            .stat-divider { display: none; }
+            .stats-grid { gap: 20px; }
+            .stat-item .number { font-size: 1.6rem; }
+        }
+
+        /* ===== Footer ===== */
         footer {
             text-align: center;
-            margin-top: 60px;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
+            padding: 40px 20px 48px;
+            border-top: 1px solid var(--border);
         }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 10px;
+
+        footer .company {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
         }
-        
-        .badge.ai {
-            background: rgba(245, 87, 108, 0.1);
-            color: #f5576c;
+
+        footer .company a {
+            color: var(--gold);
+            text-decoration: none;
         }
+
+        footer .powered {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        .delay-7 { animation-delay: 0.7s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Advanced Marketing</h1>
-            <p>The team behind the scenes</p>
-        </header>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="avatar">👤</div>
-                <h2 class="name">Benji Boyce</h2>
-                <p class="role">Owner & CEO</p>
-                <p class="email">ben@advancedmarketing.co</p>
-                <span class="badge">Hong Kong</span>
-                <div class="responsibilities">
-                    <h4>Focus Areas</h4>
-                    <ul>
-                        <li>Strategic direction & vision</li>
-                        <li>Client relationships</li>
-                        <li>Business development</li>
-                        <li>Final decision maker</li>
-                    </ul>
-                </div>
+<div class="page-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header class="hero">
+        <div class="hero-brand animate-in">Advanced Marketing</div>
+        <h1 class="animate-in delay-1">Meet the <span>Team</span></h1>
+        <p class="tagline animate-in delay-2">A hybrid team of humans and AI agents powering marketing operations across 100+ sites</p>
+    </header>
+
+    <!-- ===== TIER 1: LEADERSHIP ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label animate-in delay-3">
+                <div class="tier-badge">Tier 1</div>
+                <h2>Leadership</h2>
+                <p>The humans running the show</p>
             </div>
-            
-            <div class="team-card">
-                <div class="avatar">📊</div>
-                <h2 class="name">Prathamesh Mali</h2>
-                <p class="role">Agency Admin</p>
-                <p class="email">pratham@advancedmarketing.co</p>
-                <span class="badge">Strategy</span>
-                <div class="responsibilities">
-                    <h4>Responsibilities</h4>
-                    <ul>
-                        <li>Marketing strategy & campaigns</li>
-                        <li>Client communication</li>
-                        <li>Ad spend optimization</li>
-                        <li>Content strategy direction</li>
-                    </ul>
+            <div class="leadership-grid">
+                <!-- Ben -->
+                <div class="leader-card animate-in delay-3">
+                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Benjamin&backgroundColor=c9a227" alt="Benjamin Boyce">
+                    <h3>Benjamin Boyce</h3>
+                    <div class="title">Founder &amp; CEO</div>
+                    <div class="email">ben@advancedmarketing.co</div>
+                    <p class="desc">Strategic direction, client relationships, business development</p>
+                    <span class="location">Vietnam</span>
                 </div>
-            </div>
-            
-            <div class="team-card">
-                <div class="avatar">📝</div>
-                <h2 class="name">Saurebh</h2>
-                <p class="role">Operations</p>
-                <p class="email">saurebh@advancedmarketing.co</p>
-                <span class="badge">Execution</span>
-                <div class="responsibilities">
-                    <h4>Responsibilities</h4>
-                    <ul>
-                        <li>Content creation & scheduling</li>
-                        <li>Supplier coordination</li>
-                        <li>Inventory management</li>
-                        <li>Social media management</li>
-                    </ul>
+                <!-- Prathamesh -->
+                <div class="leader-card animate-in delay-4">
+                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Prathamesh&backgroundColor=667eea" alt="Prathamesh Mali">
+                    <h3>Prathamesh Mali</h3>
+                    <div class="title">Agency Admin</div>
+                    <div class="email">pratham@advancedmarketing.co</div>
+                    <p class="desc">Marketing strategy, client communication, ad optimization</p>
                 </div>
-            </div>
-            
-            <div class="team-card ai">
-                <div class="avatar">🦅</div>
-                <h2 class="name">Jackie</h2>
-                <p class="role">AI Assistant</p>
-                <p class="email">Always available</p>
-                <span class="badge ai">24/7 Support</span>
-                <div class="responsibilities">
-                    <h4>Capabilities</h4>
-                    <ul>
-                        <li>Shopify & website operations</li>
-                        <li>Data analysis & reporting</li>
-                        <li>Server & automation</li>
-                        <li>Agent management</li>
-                    </ul>
+                <!-- Saurebh -->
+                <div class="leader-card animate-in delay-5">
+                    <img class="leader-avatar" src="https://api.dicebear.com/7.x/notionists/svg?seed=Saurebh&backgroundColor=f5576c" alt="Saurebh">
+                    <h3>Saurebh</h3>
+                    <div class="title">Operations Lead</div>
+                    <div class="email">saurebh@advancedmarketing.co</div>
+                    <p class="desc">Content creation, supplier coordination, social media</p>
                 </div>
             </div>
         </div>
-        
-        <footer>
-            <p>Advanced Marketing Limited • client.advancedmarketing.co</p>
-        </footer>
+    </section>
+
+    <div class="connector"></div>
+
+    <!-- ===== TIER 2: C-LEVEL AI ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">
+                <div class="tier-badge">Tier 2</div>
+                <h2>C-Level AI Agents</h2>
+                <p>Executive AI layer orchestrating 77 specialist agents</p>
+            </div>
+            <div class="clevel-grid">
+                <!-- CEO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CEO&backgroundColor=c9a227" alt="CEO Agent" style="border-color: var(--gold);">
+                    <h3>CEO Agent</h3>
+                    <div class="title">Chief AI Orchestrator</div>
+                    <span class="agent-count" style="background: var(--gold-dim); color: var(--gold);">77 Agents</span>
+                </div>
+                <!-- CTO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CTO&backgroundColor=3b82f6" alt="CTO Agent" style="border-color: var(--blue);">
+                    <h3>CTO Agent</h3>
+                    <div class="title">Chief Technology Officer</div>
+                    <span class="agent-count" style="background: rgba(59,130,246,0.12); color: var(--blue);">20 Agents</span>
+                </div>
+                <!-- CDO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CDO&backgroundColor=a855f7" alt="CDO Agent" style="border-color: var(--purple);">
+                    <h3>CDO Agent</h3>
+                    <div class="title">Chief Design Officer</div>
+                    <span class="agent-count" style="background: rgba(168,85,247,0.12); color: var(--purple);">11 Agents</span>
+                </div>
+                <!-- CMO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CMO&backgroundColor=eab308" alt="CMO Agent" style="border-color: var(--yellow);">
+                    <h3>CMO Agent</h3>
+                    <div class="title">Chief Marketing Officer</div>
+                    <span class="agent-count" style="background: rgba(234,179,8,0.12); color: var(--yellow);">10 Agents</span>
+                </div>
+                <!-- CDO-Data Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CDOData&backgroundColor=06b6d4" alt="CDO-Data Agent" style="border-color: var(--cyan);">
+                    <h3>CDO-Data</h3>
+                    <div class="title">Chief Data Officer</div>
+                    <span class="agent-count" style="background: rgba(6,182,212,0.12); color: var(--cyan);">10 Agents</span>
+                </div>
+                <!-- COO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=COO&backgroundColor=f97316" alt="COO Agent" style="border-color: var(--orange);">
+                    <h3>COO Agent</h3>
+                    <div class="title">Chief Operations Officer</div>
+                    <span class="agent-count" style="background: rgba(249,115,22,0.12); color: var(--orange);">10 Agents</span>
+                </div>
+                <!-- CIO Agent -->
+                <div class="clevel-card">
+                    <img class="clevel-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=CIO&backgroundColor=ef4444" alt="CIO Agent" style="border-color: var(--red);">
+                    <h3>CIO Agent</h3>
+                    <div class="title">Chief Integration Officer</div>
+                    <span class="agent-count" style="background: rgba(239,68,68,0.12); color: var(--red);">5 Agents</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="connector"></div>
+
+    <!-- ===== TIER 3: PROJECT MANAGERS ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">
+                <div class="tier-badge">Tier 3</div>
+                <h2>Project Managers</h2>
+                <p>AI coordinators bridging strategy and execution</p>
+            </div>
+            <div class="pm-grid">
+                <div class="pm-card">
+                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMWeb&backgroundColor=ffffff" alt="PM-Web">
+                    <h3>PM-Web</h3>
+                    <div class="title">Web Project Manager</div>
+                    <div class="reports-to">Reports to CTO Agent</div>
+                </div>
+                <div class="pm-card">
+                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMMarketing&backgroundColor=ffffff" alt="PM-Marketing">
+                    <h3>PM-Marketing</h3>
+                    <div class="title">Marketing Project Manager</div>
+                    <div class="reports-to">Reports to CMO Agent</div>
+                </div>
+                <div class="pm-card">
+                    <img class="pm-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=PMClient&backgroundColor=ffffff" alt="PM-Client">
+                    <h3>PM-Client</h3>
+                    <div class="title">Client Project Manager</div>
+                    <div class="reports-to">Reports to COO Agent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="connector"></div>
+
+    <!-- ===== TIER 4: DEPARTMENT GRID ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">
+                <div class="tier-badge">Tier 4</div>
+                <h2>Specialist Agents</h2>
+                <p>67 purpose-built agents across 8 departments</p>
+            </div>
+            <div class="dept-grid">
+                <!-- Web Development -->
+                <div class="dept-block dept-blue">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--blue);"></span>Web Development</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">html-builder</span>
+                        <span class="agent-chip">css-fixer</span>
+                        <span class="agent-chip">js-debugger</span>
+                        <span class="agent-chip">responsive-checker</span>
+                        <span class="agent-chip">performance-optimizer</span>
+                        <span class="agent-chip">accessibility-checker</span>
+                        <span class="agent-chip">seo-optimizer</span>
+                        <span class="agent-chip">form-builder</span>
+                        <span class="agent-chip">animation-builder</span>
+                        <span class="agent-chip">component-builder</span>
+                    </div>
+                </div>
+                <!-- Design & Branding -->
+                <div class="dept-block dept-purple">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--purple);"></span>Design &amp; Branding</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">brand-identity</span>
+                        <span class="agent-chip">landing-page-designer</span>
+                        <span class="agent-chip">email-template-designer</span>
+                        <span class="agent-chip">social-media-designer</span>
+                        <span class="agent-chip">favicon-creator</span>
+                        <span class="agent-chip">color-palette-gen</span>
+                        <span class="agent-chip">typography-selector</span>
+                        <span class="agent-chip">wireframe-builder</span>
+                        <span class="agent-chip">dark-mode-builder</span>
+                        <span class="agent-chip">style-guide-builder</span>
+                    </div>
+                </div>
+                <!-- DevOps & Infrastructure -->
+                <div class="dept-block dept-green">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--green);"></span>DevOps &amp; Infrastructure</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">netlify-deployer</span>
+                        <span class="agent-chip">cloudflare-dns</span>
+                        <span class="agent-chip">github-repo-manager</span>
+                        <span class="agent-chip">env-var-manager</span>
+                        <span class="agent-chip">ssl-domain-checker</span>
+                        <span class="agent-chip">uptime-monitor</span>
+                        <span class="agent-chip">build-error-fixer</span>
+                        <span class="agent-chip">redirect-manager</span>
+                        <span class="agent-chip">backup-creator</span>
+                        <span class="agent-chip">site-cloner</span>
+                    </div>
+                </div>
+                <!-- Marketing & Content -->
+                <div class="dept-block dept-yellow">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--yellow);"></span>Marketing &amp; Content</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">copywriter</span>
+                        <span class="agent-chip">blog-writer</span>
+                        <span class="agent-chip">email-sequence-writer</span>
+                        <span class="agent-chip">social-post-writer</span>
+                        <span class="agent-chip">ad-copy-writer</span>
+                        <span class="agent-chip">seo-content-writer</span>
+                        <span class="agent-chip">headline-tester</span>
+                        <span class="agent-chip">cta-optimizer</span>
+                        <span class="agent-chip">lead-magnet-creator</span>
+                        <span class="agent-chip">case-study-writer</span>
+                    </div>
+                </div>
+                <!-- Data & Analytics -->
+                <div class="dept-block dept-cyan">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--cyan);"></span>Data &amp; Analytics</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">supabase-query</span>
+                        <span class="agent-chip">db-schema-designer</span>
+                        <span class="agent-chip">analytics-reporter</span>
+                        <span class="agent-chip">conversion-tracker</span>
+                        <span class="agent-chip">ab-test-analyzer</span>
+                        <span class="agent-chip">user-behavior-analyst</span>
+                        <span class="agent-chip">funnel-analyzer</span>
+                        <span class="agent-chip">dashboard-builder</span>
+                        <span class="agent-chip">data-migrator</span>
+                        <span class="agent-chip">report-generator</span>
+                    </div>
+                </div>
+                <!-- Client & Project Mgmt -->
+                <div class="dept-block dept-orange">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--orange);"></span>Client &amp; Project Mgmt</h3>
+                        <span class="count">10 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">clickup-task-manager</span>
+                        <span class="agent-chip">project-planner</span>
+                        <span class="agent-chip">client-onboarder</span>
+                        <span class="agent-chip">proposal-writer</span>
+                        <span class="agent-chip">invoice-generator</span>
+                        <span class="agent-chip">meeting-notes</span>
+                        <span class="agent-chip">sprint-planner</span>
+                        <span class="agent-chip">bug-tracker</span>
+                        <span class="agent-chip">feature-prioritizer</span>
+                        <span class="agent-chip">changelog-writer</span>
+                    </div>
+                </div>
+                <!-- Automation & Integration -->
+                <div class="dept-block dept-red">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--red);"></span>Automation &amp; Integration</h3>
+                        <span class="count">5 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">api-connector</span>
+                        <span class="agent-chip">webhook-builder</span>
+                        <span class="agent-chip">cron-scheduler</span>
+                        <span class="agent-chip">email-automator</span>
+                        <span class="agent-chip">scraper-builder</span>
+                    </div>
+                </div>
+                <!-- Special Ops -->
+                <div class="dept-block dept-pink">
+                    <div class="dept-header">
+                        <h3><span class="dot" style="background: var(--pink);"></span>Special Ops</h3>
+                        <span class="count">2 agents</span>
+                    </div>
+                    <div class="dept-agents">
+                        <span class="agent-chip">full-stack-qa-tester</span>
+                        <span class="agent-chip">frontend-designer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">77</div>
+                    <div class="label">AI Agents</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="number">3</div>
+                    <div class="label">Humans</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="number">7</div>
+                    <div class="label">Departments</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="number">100+</div>
+                    <div class="label">Sites Managed</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="number">24/7</div>
+                    <div class="label">Operations</div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="company">Advanced Marketing Limited &middot; <a href="https://advancedmarketing.co">advancedmarketing.co</a> &middot; &copy; 2026</div>
+        <div class="powered">Powered by Claude Code + Custom AI Agent Architecture</div>
+    </footer>
+
+</div>
 </body>
 </html>
